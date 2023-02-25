@@ -32,7 +32,26 @@ resource "aws_security_group" "k8s-sg" {
   
 }
 
+resource "aws_instance" "kubernetes-worker" {
+  ami       = "ami-04473c3d3be6a927f"
+  instance_type = "t2.micro"
+  key_name = "k8s-key"
+  count = 2
+  tags = {
+    Name = "k8s"
+    Type = "worker"
+  }
+  security_groups = ["${aws_security_group.k8s-sg.name}"]
+}
+
 resource "aws_instance" "kubernetes-master" {
-  ami       = ""
-  
+  ami       = "ami-04473c3d3be6a927f"
+  instance_type = "t2.micro"
+  key_name = "k8s-key"
+  count = 1
+  tags = {
+    Name = "k8s"
+    Type = "master"
+  }
+  security_groups = ["${aws_security_group.k8s-sg.name}"]
 }
