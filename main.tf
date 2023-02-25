@@ -38,8 +38,8 @@ resource "aws_instance" "kubernetes-worker" {
   key_name = "k8s-key"
   count = 2
   tags = {
-    Name = "k8s"
-    Type = "worker"
+    name = "k8s"
+    type = "worker"
   }
   security_groups = ["${aws_security_group.k8s-sg.name}"]
 }
@@ -50,8 +50,8 @@ resource "aws_instance" "kubernetes-master" {
   key_name = "k8s-key"
   count = 1
   tags = {
-    Name = "k8s"
-    Type = "master"
+    name = "k8s"
+    type = "master"
   }
   security_groups = ["${aws_security_group.k8s-sg.name}"]
 }
