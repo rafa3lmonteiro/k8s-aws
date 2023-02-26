@@ -5,4 +5,4 @@ terraform {
         encrypt = "true"
         key = "terraform.tfstate"    
     } 
-}
+}  
