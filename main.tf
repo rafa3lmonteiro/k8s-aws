@@ -55,3 +55,12 @@ resource "aws_instance" "kubernetes-master" {
   }
   security_groups = ["${aws_security_group.k8s-sg.name}"]
 }
+
+output "k8s-master" {
+  value = aws_instance.kubernetes-master[*].public_ip
+}
+
+output "k8s-worker" {
+  value = aws_instance.kubernetes-worker[*].public_ip
+}
+
