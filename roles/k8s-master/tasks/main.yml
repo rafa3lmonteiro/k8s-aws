@@ -28,5 +28,6 @@
 
 - name: Install pod network
   command: kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
-
+  enviroment: 
+    KUBECONFIG: /etc/kubernetes/admin.conf
   ...
