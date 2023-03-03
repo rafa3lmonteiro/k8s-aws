@@ -20,14 +20,15 @@
     src: /root/kubejoin.sh
 
 - name: Organize files
+  become: true
   shell: |
          cp join/{{ inventory_hostname }}/root/kubejoin.sh join/
          rm -fr join/{{ inventory_hostname }}
   delegate_to: localhost
-  become: no
 
-- name: Install pod network
-  command: kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
-  enviroment: 
+- name: Install Pod network
+  environment: 
     KUBECONFIG: /etc/kubernetes/admin.conf
-  ...
+  command: kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+    
+...

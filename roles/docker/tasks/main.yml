@@ -12,10 +12,11 @@
 
 - name: Add docker repository
   apt_repository: 
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu/gpg bionic stable
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
 
 - name: Install docker
   apt:
     name: "{{ item }}"
   loop: "{{ docker_packages }}"
-  ...
+
+...

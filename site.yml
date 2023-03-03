@@ -1,21 +1,23 @@
 ---
 - name: Install k8s and docker packages
-  become: yes
+  become: true
   hosts: tag_name_k8s
   roles:
     - docker
     - k8s-all
 
 - name: Setup master node
-  become: yes
+  become: true
   hosts: tag_type_master
   roles:
     - k8s-master
 
 - name: Setup worker node
-  become: yes
+  become: true
   hosts: tag_type_worker
   roles:
     - k8s-worker
-  
+
+# ansible-playbook -u ubuntu -i inventory site.yml 
+
 ...
