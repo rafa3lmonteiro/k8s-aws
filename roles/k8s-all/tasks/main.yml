@@ -27,5 +27,9 @@
   with_items:
   - net.bridge.bridge-nf-call-iptables
   - net.bridge.bridge-nf-call-ip6tables
+  - net.ipv4.ip_forward
+
+- name: Setting config default on Containerd
+  shell: containerd config default > /etc/containerd/config.toml ; systemctl restart containerd
 
 ...

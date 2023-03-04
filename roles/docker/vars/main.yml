@@ -1,13 +1,12 @@
 docker_prereqs_packages:
-- apt-transport-https
-- ca-certificates
-- curl
-- gnupg-agent
-- software-properties-common
-- lsb-release
+- ca-certificates 
+- curl 
 - gnupg 
+- lsb-release
 
 docker_packages:
-- docker-ce
-- docker-ce-cli
-#- containerd.io
+- docker-ce 
+- docker-ce-cli 
+- containerd.io 
+- docker-buildx-plugin 
+- docker-compose-plugin
