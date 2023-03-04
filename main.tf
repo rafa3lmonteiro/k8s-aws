@@ -33,8 +33,7 @@ resource "aws_security_group" "k8s-sg" {
 }
 
 resource "aws_instance" "kubernetes-worker" {
-  ami       = "ami-019e9884d49f70483"   # Ubuntu, 18.04 LTS
-  #instance_type = "t2.micro" 
+  ami       = "ami-019e9884d49f70483"   
   instance_type = "t2.medium"
   key_name = "k8s-key"
   count = 2
@@ -46,8 +45,7 @@ resource "aws_instance" "kubernetes-worker" {
 }
 
 resource "aws_instance" "kubernetes-master" {
-  ami       = "ami-019e9884d49f70483"   # Ubuntu, 18.04 LTS
-  #instance_type = "t2.micro"
+  ami       = "ami-019e9884d49f70483"   
   instance_type = "t2.medium"
   key_name = "k8s-key"
   count = 1

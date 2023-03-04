@@ -4,8 +4,10 @@ docker_prereqs_packages:
 - curl
 - gnupg-agent
 - software-properties-common
+- lsb-release
+- gnupg 
 
 docker_packages:
 - docker-ce
 - docker-ce-cli
-- containerd.io
+#- containerd.io
