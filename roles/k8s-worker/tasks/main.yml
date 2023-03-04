@@ -1,5 +1,5 @@
 ---
-- name: Copy join to nodes
+- name: Copy join to worker nodes
   copy:
     dest: /opt/kubejoin.sh
     src: ./join/kubejoin.sh

@@ -14,13 +14,14 @@
 - name: Prepare kubejoin script
   shell: tail -2 /root/kubeadminit > /root/kubejoin.sh
 
-- name: Get kubejoin
+- name: Get kubejoin from k8s-master to ansible master
   fetch:
-    dest: ./join
     src: /root/kubejoin.sh
+    dest: ./join
+    
 
 - name: Organize files
-  become: true
+  become: false
   shell: |
          cp join/{{ inventory_hostname }}/root/kubejoin.sh join/
          rm -fr join/{{ inventory_hostname }}
