@@ -40,6 +40,7 @@ resource "aws_instance" "kubernetes-worker" {
   tags = {
     Name = "k8s-worker-${count.index}"
     type = "worker"
+    env = "k8s"
   }
   security_groups = ["${aws_security_group.k8s-sg.name}"]
 }
@@ -52,6 +53,7 @@ resource "aws_instance" "kubernetes-master" {
   tags = {
     Name = "k8s-master-${count.index}"
     type = "master"
+    env = "k8s"
   }
   security_groups = ["${aws_security_group.k8s-sg.name}"]
 }

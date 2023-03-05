@@ -4,8 +4,8 @@ regions:
   - sa-east-1
 
 keyed_groups:
-#  - key: tags.Name
-#    separator: ""
+  - key: tags.env
+    separator: ""
   - key: tags.type
     separator: ""
 
