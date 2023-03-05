@@ -1,0 +1,16 @@
+- hosts: master
+  become: yes
+
+  tasks: 
+  - name: install apache
+    apt: 
+      name: nginx
+      state: latest
+  
+  - name: create directory
+    file:
+      path: /home/ubuntu/teste-worker
+      state: directory
+      owner: ubuntu
+      group: ubuntu
+

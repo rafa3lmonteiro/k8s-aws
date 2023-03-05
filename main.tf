@@ -34,7 +34,7 @@ resource "aws_security_group" "k8s-sg" {
 
 resource "aws_instance" "kubernetes-worker" {
   ami       = "ami-019e9884d49f70483"   
-  instance_type = "t2.medium"
+  instance_type = "t2.micro"
   key_name = "k8s-key"
   count = 2
   tags = {
@@ -46,7 +46,7 @@ resource "aws_instance" "kubernetes-worker" {
 
 resource "aws_instance" "kubernetes-master" {
   ami       = "ami-019e9884d49f70483"   
-  instance_type = "t2.medium"
+  instance_type = "t2.micro"
   key_name = "k8s-key"
   count = 1
   tags = {
